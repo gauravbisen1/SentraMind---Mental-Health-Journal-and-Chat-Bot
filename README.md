@@ -1,0 +1,1 @@
+SentraMind 🧠 is a mental health journal and AI-powered chatbot that helps users track their thoughts 📝, monitor emotional well-being 📊, and receive supportive, conversational guidance 🤗. It combines daily journaling 📖, mood analysis 🌈, and an empathetic chatbot 🤖 to promote mental wellness and self-awareness ✨.
