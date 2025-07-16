@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const Data = require("./models/data.js");
 const path = require("path");
 const ejsMate = require("ejs-mate");
+app.use(express.static(path.join(__dirname,"/public")));
 
 app.engine("ejs",ejsMate);
 
@@ -35,3 +36,5 @@ app.get("/data", async (req,res)=>{
     const allData = await Data.find({});
     res.render("listings/index.ejs",{allData});
 });
+
+//show route
