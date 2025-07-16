@@ -3,6 +3,9 @@ const app = express();
 const mongoose = require("mongoose");
 const Data = require("./models/data.js");
 const path = require("path");
+const ejsMate = require("ejs-mate");
+
+app.engine("ejs",ejsMate);
 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
@@ -30,5 +33,5 @@ main().then(()=>{
 //index route
 app.get("/data", async (req,res)=>{
     const allData = await Data.find({});
-    res.render("/listings/index.ejs",{allData});
+    res.render("listings/index.ejs",{allData});
 });
