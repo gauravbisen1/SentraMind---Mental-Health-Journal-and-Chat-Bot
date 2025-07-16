@@ -2,6 +2,11 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const Data = require("./models/data.js");
+const path = require("path");
+
+app.set("view engine","ejs");
+app.set("views",path.join(__dirname,"views"));
+app.use(express.urlencoded({extended:true}));
 
 app.listen(8080,()=>{
     console.log("server is listening to port 8080");
@@ -22,14 +27,8 @@ main().then(()=>{
     console.log(err);
 });
 
-//test
-app.get("/test" , async (req,res)=>{
-    let sampleData = new Data({
-        text: "Sample Data",
-        sentiment: "sample emotion",
-    });
-    //to save in db
-    await sampleData.save();
-    console.log("Sample data saved!");
-    res.send("test successful!!");
+//index route
+app.get("/data", async (req,res)=>{
+    const allData = await Data.find({});
+    res.render("/listings/index.ejs",{allData});
 });
