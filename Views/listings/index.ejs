@@ -4,11 +4,15 @@
     <ul>
         <% for(let data of allData){ %>
             <li>
-                <a href="/data/<%= data._id %>">
+                <a href="/home/<%= data._id %>">
                     <%= data.text %>
                 </a>
             </li>
         <% } %>
-        
     </ul>
+    
+    <form method="GET" action="/home/new">
+        <button  class="btn btn-success">add new thought</button>
+    </form>
+    <br>
 </body>

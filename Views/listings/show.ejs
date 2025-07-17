@@ -1,0 +1,16 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<body>
+    <h3>Deatails:</h3>
+    <ul>
+        <li><%= data.text %></li>
+        <li><%= data.sentiment %></li>
+        <li><%= data.date %></li>
+    </ul>
+    
+    <a href="/home/<%= data._id %>/edit">
+        edit thought
+    </a>
+    <form method="post" action="/home/<%= data._id %>?_method=DELETE">
+        <button class="btn btn-success" type="submit">Delete Thought</button>
+    </form>
+</body>
