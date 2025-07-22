@@ -1,18 +1,46 @@
 <% layout("/layouts/boilerplate.ejs") %>
 <body>
-    <h3>All Data</h3>
-    <ul>
-        <% for(let data of allData){ %>
-            <li>
-                <a href="/home/<%= data._id %>">
-                    <%= data.text %>
-                </a>
-            </li>
-        <% } %>
-    </ul>
     
-    <form method="GET" action="/home/new">
-        <button  class="btn btn-success">add new thought</button>
-    </form>
+    <br>
+    <div class="container">
+        <div class="row row-cols-lg-2 row-cols-md-2 row-cols-1 g-4">
+          <% for(let data of allData){ %>
+            <div class="col">
+              <div class="card h-100 position-relative">
+                
+                <div class="card-body">
+                    <h5 class="card-title"><%= data.user %></h5>
+                    <p class="card-text"><%= data.text %></p>
+                    <p><%= data.date %></p>
+                    <a href="#" class="btn btn-primary">Read more ></a>
+                  <!-- Stretched link to make the entire card clickable -->
+                  <a href="/home/<%= data._id %>" class="stretched-link"></a>
+                </div>
+              </div>
+            </div>
+          <% } %>
+        </div>
+      </div>
+
+      <br>
+      <div class="demo">
+          <div class="stuff">
+            <h3>Let’s make mental health support accessible to all</h3>
+          <p>Wysa is more than just an app; it is a partner in building healthier, happier, and more resilient communities. Whether you’re looking to support your employees, enhance patient care, or empower the next generation, Wysa provides the tools you need to make mental health a priority.</p>
+          <h4>Ready to see more?</h4>
+          <button>demo</button>
+          </div>
+          <div class="stuff-img">
+            <img src="https://www.shutterstock.com/image-vector/mental-health-banner-card-place-260nw-2155187849.jpg" alt="">
+          </div>
+      </div>
+
+    <div class="disclaimer">
+        <p>
+            <b>Disclaimer:</b>  Wysa is not designed to assist with crises such as abuse, severe mental health conditions that may cause feelings of suicide, harm to self, and any other medical emergencies. Wysa cannot and will not offer medical or clinical advice. It can only suggest that users seek advanced and professional medical help. Please reach out to your country-specific suicide hotline in case of an emergency.
+            <br><br>
+            You must be at least 18 years of age to use Wysa. If you are between 13 and 18 years of age, please read through the Terms of Service and Privacy Policy along with your parents or legal guardian to understand eligibility before use. Wysa is not designed to be used by children under 13.
+        </p>
+    </div>
     <br>
 </body>
