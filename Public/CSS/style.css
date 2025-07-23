@@ -14,6 +14,14 @@ body{
    background-color: #ecf2f4;
     
 }
+/* card effect */
+.card-img-overlay{
+    opacity: 0;
+}
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+}
 .disclaimer{
     padding-top: 5rem;
     padding-bottom: 2.5rem;
