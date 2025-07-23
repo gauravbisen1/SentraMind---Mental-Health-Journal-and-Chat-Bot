@@ -1,9 +1,68 @@
 <% layout("/layouts/boilerplate.ejs") %>
+<style>
+  .slanted-section {
+  background-color: #ecf2f4; /* light grey/blue */
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  padding: 100px 0;
+ 
+  }
+
+  .left-right{
+      display: flex;
+      
+  }
+  .right{
+    width: 50%;
+    height: 40rem;
+
+  }
+  .right img{
+   
+  }
+
+  .left{
+    width: 50%;
+    height: 40rem;
+    cursor: pointer;
+    padding-left: 12rem;
+    padding-top: 4rem;
+  }
+
+  .left h1 {
+    font-weight: bold;
+    margin-bottom: 2rem;
+  }
+
+  .left p , button{
+    margin-bottom: 2rem;
+  }
+
+    .container
+
+</style>
 <body>
+  <section class="slanted-section left-right">
+    <div class="left">
+      <h1>Prioritize Your <br>Mental Health</h1>
+      <p>Get mental health support today. <br>
+        Find the solution which is right for you.</p>
+        
+        <button type="button" class="btn btn-outline-success">Talk to Our Mental Health Assistant</button>
+    </div>
+    <div class="right">
+        <img src="https://www.mentalhealth.com/wp-content/uploads/2024/02/homepage-1c.png" alt="">
+    </div>
+  </section>
+
+    <br><br><br><br>
+
+    <div style="text-align: center; margin-bottom: 4rem;">
+      <h1 ><b>Mental Health Blogs</b></h1>
+      <p>Share your thoughts, feelings, and experiences — your story matters here.</p>
+    </div>
     
-    <br>
-    <div class="container">
-        <div class="row row-cols-lg-2 row-cols-md-2 row-cols-1 g-4">
+    <div class="container ">
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 g-4">
           <% for(let data of allData){ %>
             <div class="col">
               <div class="card h-100 position-relative">
@@ -11,8 +70,8 @@
                 <div class="card-body">
                     <h5 class="card-title"><%= data.user %></h5>
                     <p class="card-text"><%= data.text %></p>
-                    <p><%= data.date %></p>
-                    <a href="#" class="btn btn-primary">Read more ></a>
+                    <p><i class="fa-solid fa-calendar"></i> <%= data.date %></p>
+                    <a href="#" class="btn btn-outline-success ">Read more ></a>
                   <!-- Stretched link to make the entire card clickable -->
                   <a href="/home/<%= data._id %>" class="stretched-link"></a>
                 </div>
@@ -22,13 +81,13 @@
         </div>
       </div>
 
-      <br>
+      <br><br><br><br><br>
       <div class="demo">
           <div class="stuff">
             <h3>Let’s make mental health support accessible to all</h3>
-          <p>Wysa is more than just an app; it is a partner in building healthier, happier, and more resilient communities. Whether you’re looking to support your employees, enhance patient care, or empower the next generation, Wysa provides the tools you need to make mental health a priority.</p>
-          <h4>Ready to see more?</h4>
-          <button>demo</button>
+            <p>Wysa is more than just an app; it is a partner in building healthier, happier, and more resilient communities. Whether you’re looking to support your employees, enhance patient care, or empower the next generation, Wysa provides the tools you need to make mental health a priority.</p>
+            <h4>Ready to see more?</h4>
+            <button>demo</button>
           </div>
           <div class="stuff-img">
             <img src="https://www.shutterstock.com/image-vector/mental-health-banner-card-place-260nw-2155187849.jpg" alt="">
