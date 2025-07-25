@@ -1,16 +1,33 @@
 <% layout("/layouts/boilerplate.ejs") %>
 <body>
-    <h3>Details:</h3>
-    <ul>
-        <li><%= data.text %></li>
-        <li><%= data.sentiment %></li>
-        <li><%= data.date %></li>
-    </ul>
-    
-    <a href="/home/<%= data._id %>/edit">
-        edit thought
-    </a>
-    <form method="post" action="/home/<%= data._id %>?_method=DELETE">
-        <button class="btn btn-success" type="submit">Delete Thought</button>
-    </form>
+    <div class="container py-5">
+        <div class="card shadow-lg rounded-4 border-0">
+          <div class="card-body">
+            <h2 class="card-title mb-4 text-primary-emphasis">🧠 Thought Details</h2>
+            <ul class="list-group list-group-flush mb-4">
+              <li class="list-group-item">
+                <strong>Thought:</strong> <%= data.text %>
+              </li>
+              <li class="list-group-item">
+                <strong>Sentiment:</strong> 
+                <span class="badge bg-<%= data.sentiment === 'positive' ? 'success' : (data.sentiment === 'neutral' ? 'secondary' : 'danger') %>">
+                  <%= data.sentiment %>
+                </span>
+              </li>
+              <li class="list-group-item">
+                <strong>Date:</strong> <%= new Date(data.date).toLocaleString() %>
+              </li>
+            </ul>
+      
+            <div class="d-flex justify-content-between">
+              <a href="/home/<%= data._id %>/edit" class="btn btn-outline-primary">
+                ✏️ Edit Thought
+              </a>
+              <form method="POST" action="/home/<%= data._id %>?_method=DELETE">
+                <button class="btn btn-outline-danger" type="submit">🗑️ Delete Thought</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div> 
 </body>
