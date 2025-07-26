@@ -9,7 +9,7 @@ const session =require("express-session");
 const flash = require("connect-flash");
 const wrapAsync = require("./utils/wrapAsync.js");
 const ExpressError = require("./utils/ExpressError.js");
-const validateData = require("./middleware.js");
+const validateListing = require("./middleware.js");//let see next time
 
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
@@ -78,7 +78,7 @@ app.get("/home/:id",wrapAsync (async(req,res)=>{
 }));
 
 //create route
-app.post("/home",validateData ,wrapAsync (async (req,res)=>{
+app.post("/home" ,wrapAsync (async (req,res)=>{
     try {
         const newData = new Data(req.body.data);
         await newData.save();
@@ -96,7 +96,7 @@ app.get("/home/:id/edit", wrapAsync (async(req,res)=>{
 }));
 
 //update route
-app.put("/home/:id", validateData,wrapAsync (async(req,res)=>{
+app.put("/home/:id",wrapAsync (async(req,res)=>{
     let {id} = req.params;
     await Data.findByIdAndUpdate(id, {...req.body.data});
     res.redirect(`/home/${id}`);
