@@ -1,4 +1,5 @@
 <% layout("/layouts/boilerplate.ejs") %>
+<%= success %>
 <style>
   .slanted-section {
   background-color: #ecf2f4; /* light grey/blue */
@@ -78,6 +79,10 @@
             </div>
           <% } %>
         </div>
+        <form method="get" action="/home/new">
+          <button>create new</button>
+         
+        </form>
       </div>
 
       <br><br><br><br><br>
