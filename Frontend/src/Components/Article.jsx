@@ -3,6 +3,7 @@ import "./Article.css"
 
 const Article = ({ date, title }) => {
     return (
+      
       <div className="blog-container_article">
 
         <div className="blog-container_article-content">

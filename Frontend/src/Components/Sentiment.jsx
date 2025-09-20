@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios"
 import Article from './Article'
-import "./Cards.css"
+import "./Sentiment.css"
 
 const Sentiment = () => {
   const [allData, setAllData] = useState([]);
@@ -12,32 +12,13 @@ const Sentiment = () => {
   }, []);
   return (
     <>
-      <h2>ALL Data ({allData.length})</h2>
+      <h2 className='text-center'>ALL Data ({allData.length})</h2>
 
-      <div className="container my-4">
-        <div className="row g-4">
-          {allData.map((user, index) => (
-            <div key={index} className="col-md-3 d-flex align-items-stretch">
-              <div className="card w-100 h-100">
-                <Article date={user.date} title={user.text} />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-
-
-      {/* <ul>
-        {allData.map(user => (
-          // <li >{user.user}  {user.date} {user.text}, {user.sentiment}, {user.__v}</li>
-          <li ><Article imgUrl={"#"} date={user.date} title={user.text} /></li>
-
-
+      <div className="articles-grid">
+        {allData.map((user, index) => (
+          <Article key={index} date={user.date} title={user.text} />
         ))}
-      </ul> */}
-
-      {/* <Article imgUrl={"#"} date={user.date} title={user.text} /> */}
+      </div>
     </>
 
   )
