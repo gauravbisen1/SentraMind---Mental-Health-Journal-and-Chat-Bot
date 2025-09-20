@@ -1,12 +1,10 @@
 import React from 'react'
 import "./Article.css"
 
-const Article = ({ imgUrl, date, title }) => {
+const Article = ({ date, title }) => {
     return (
       <div className="blog-container_article">
-        <div className="blog-container_article-image">
-          <img src={imgUrl} alt="blog" />
-        </div>
+
         <div className="blog-container_article-content">
           <p>{date}</p>
           <h3>{title}</h3>
