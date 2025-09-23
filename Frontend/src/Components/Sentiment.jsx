@@ -15,8 +15,12 @@ const Sentiment = () => {
       <h2 className='text-center'>ALL Data ({allData.length})</h2>
 
       <div className="articles-grid">
-        {allData.map((user, index) => (
-          <Article key={index} date={user.date} title={user.text} />
+        {allData.map((user) => (
+          <Article
+           key={user._id}
+           _id = {user._id}
+           date={user.date} 
+           title={user.text} />
         ))}
       </div>
     </>
