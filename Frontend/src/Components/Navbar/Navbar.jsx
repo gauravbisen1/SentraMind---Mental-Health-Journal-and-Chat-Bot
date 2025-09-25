@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import logo from "../assets/sun.png"
+import logo from "../../assets/sun.png"
 import {Link} from "react-router"
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri"
 import "./Navbar.css"

@@ -16,9 +16,9 @@ router.get("/", wrapAsync (async (req,res)=>{
 }));
 
 //new route REMAIN
-router.get("/new",(req,res)=>{
-    res.render("listings/new.ejs");
-});
+// router.get("/new",(req,res)=>{
+//     res.render("listings/new.ejs");
+// });
 
 //show route
 router.get("/:id",wrapAsync (async(req,res)=>{

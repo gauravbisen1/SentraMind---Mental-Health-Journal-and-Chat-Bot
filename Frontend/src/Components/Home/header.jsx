@@ -1,7 +1,7 @@
 import React from 'react'
 import "./header.css"
 import {Link} from "react-router"
-import people from "../assets/people.png"
+import people from "../../assets/people.png"
 
 const header = () => {
   return (

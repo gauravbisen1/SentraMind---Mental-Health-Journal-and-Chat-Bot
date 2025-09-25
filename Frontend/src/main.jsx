@@ -6,9 +6,8 @@ import App from './App.jsx'
 import Chatbot from './Chatbot/Chatbot.jsx'
 import Details from './Components/Sentiment/Details.jsx'
 import Layout from './Layout.jsx'
-import Disclaimer from './Components/Disclaimer'
-import Sentiment from './Components/Sentiment.jsx'
-
+import NewSentiment from './Components/Sentiment/NewSentiment.jsx'
+import EditSentiment from './Components/Sentiment/EditSentiment.jsx'
 
 const router = createBrowserRouter([
   {
@@ -22,7 +21,16 @@ const router = createBrowserRouter([
   {
     path: "/details/:id",
     element: <Details/>
+  },
+  { 
+    path: "/details/:id/edit", 
+    element: <EditSentiment /> 
+  },
+  {
+    path: "/new",
+    element: <NewSentiment />
   }
+  
   
 ])
 

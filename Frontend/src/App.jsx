@@ -6,7 +6,7 @@ const App = () => {
 
     <>
       <div className="data">
-        
+        App
       </div>
     </>
 

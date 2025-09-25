@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from "react-router-dom";
 import axios from "axios"
 import Article from './Article'
 import "./Sentiment.css"
 
 const Sentiment = () => {
+  const navigate = useNavigate();
   const [allData, setAllData] = useState([]);
   useEffect(() => {
     axios.get("http://localhost:8080/sentra").then((res) => {
@@ -22,7 +24,12 @@ const Sentiment = () => {
            date={user.date} 
            title={user.text} />
         ))}
+
+
       </div>
+
+      <button onClick={() => navigate("/new")}>New Sentiment</button>
+
     </>
 
   )
