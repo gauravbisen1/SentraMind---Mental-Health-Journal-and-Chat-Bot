@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import Navbar from "../Components/Navbar/Navbar"
 import Footer from "../Components/Footer/Footer"
+import Main from "./Main"
+import Sidebar from "./Sidebar";
+
 
 const Chatbot = () => {
   const [input, setInput] = useState("");
@@ -35,8 +38,8 @@ const Chatbot = () => {
   return (
     <>
     <Navbar/>
-    <div style={{ width: "400px", margin: "50px auto", fontFamily: "Arial" }}>
-      <h2>SentraMind AI ChatBot</h2>
+    <div style={{ width: "400px",marginTop:"200px" , margin: "50px auto", fontFamily: "Arial" }}>
+      <h2 >SentraMind AI ChatBot</h2>
       <input
         type="text"
         value={input}
@@ -66,7 +69,17 @@ const Chatbot = () => {
         </div>
       )}
     </div>
+
     <br /><br />
+
+
+    <div className="flex h-screen">
+    <Sidebar/>
+    <Main/>
+    </div>
+    
+    <br /><br />
+
     <Footer/>
     </>
   );
