@@ -37,50 +37,50 @@ const Chatbot = () => {
 
   return (
     <>
-    <Navbar/>
-    <div style={{ width: "400px",marginTop:"200px" , margin: "50px auto", fontFamily: "Arial" }}>
-      <h2 >SentraMind AI ChatBot</h2>
-      <input
-        type="text"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        onKeyDown={handleKeyPress}
-        placeholder="Type your prompt..."
-        style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
-      />
-      <button
-        onClick={handleSend}
-        style={{ padding: "10px 20px", cursor: "pointer" }}
-        disabled={loading}
-      >
-        {loading ? "Thinking..." : "Send"}
-      </button>
-      {response && (
-        <div
-          style={{
-            marginTop: "20px",
-            padding: "10px",
-            border: "1px solid #ccc",
-            borderRadius: "5px",
-            backgroundColor: "#f1f1f1",
-          }}
+      <Navbar />
+      <div style={{ backgroundColor: "red", width: "400px", marginTop: "200px", margin: "50px auto", fontFamily: "Arial" }}>
+        <h2 >SentraMind AI ChatBot</h2>
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyDown={handleKeyPress}
+          placeholder="Type your prompt..."
+          style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
+        />
+        <button
+          onClick={handleSend}
+          style={{ padding: "10px 20px", cursor: "pointer" }}
+          disabled={loading}
         >
-          <strong>AI:</strong> {response}
-        </div>
-      )}
-    </div>
+          {loading ? "Thinking..." : "Send"}
+        </button>
+        {response && (
+          <div
+            style={{
+              marginTop: "20px",
+              padding: "10px",
+              border: "1px solid #ccc",
+              borderRadius: "5px",
+              backgroundColor: "#f1f1f1",
+            }}
+          >
+            <strong>AI:</strong> {response}
+          </div>
+        )}
+      </div>
 
-    <br /><br />
 
 
-    <div className="flex h-screen">
-    <Sidebar/>
-    <Main/>
-    </div>
-    
-    <br /><br />
+      <div className="">
+        <Sidebar />
+        <Main />
+      </div>
 
-    <Footer/>
+      <br /><br />
+      
+
+      <Footer />
     </>
   );
 };
