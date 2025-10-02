@@ -1,0 +1,163 @@
+.main {
+    /* background-color: darkgray; */
+    flex: 1;
+    max-height: 100vh;
+    position: relative;
+    /* overflow-y: auto; */
+    margin-bottom: 120px;
+}
+
+.top {
+    align-items: center;
+    padding: 20px 15px;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 100px;
+}
+
+.top p {
+    font-size: 22px;
+}
+
+.profile {
+    border-radius: 50%;
+    height: 48px;
+    width: 48px;
+}
+
+.main-container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.main .greet {
+    font-size: 56px;
+    color: #c4c7c5;
+    font-weight: 500;
+    padding: 20px;
+}
+
+.main .greet span {
+    background: -webkit-linear-gradient(16deg, #4b90ff, #ff5546);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main .cards {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 15px 1fr 15px 1fr 15px 1fr;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    padding: 10px 200px;
+    overflow-x: auto;
+    margin-bottom: 10rem;
+}
+
+.cards::-webkit-scrollbar {
+    display: none;
+}
+
+.main .card {
+    height: 200px;
+    min-width: 200px;
+    padding: 15px;
+    background-color: #f0f4f9;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.main .card img {
+    width: 35px;
+    padding: 5px;
+    position: absolute;
+    background-color: white;
+    border-radius: 20px;
+    bottom: 10px;
+    right: 10px;
+}
+
+.main .card p {
+    color: #585858;
+    font-size: 17px;
+}
+
+.main .card:hover {
+    background-color: #dfe4ea;
+}
+
+.main-bottom {
+    position: fixed;
+    bottom: 0;
+    padding: 2px 200px;
+    margin: auto;
+    background-color: white;
+    box-shadow: #ffffff 0 -20px 50px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background-color: #f0f4f9;
+    padding: 8px 20px;
+    border-radius: 50px;
+}
+
+.search-box img {
+    width: 24px;
+    cursor: pointer;
+}
+
+.search-box textarea {
+    height: 40px;
+    line-height: 40px;
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding-inline: 8px;
+    font-size: 18px;
+    resize: none;
+
+}
+
+
+.search-box textarea::-webkit-scrollbar {
+    display: none;
+}
+
+.search-box div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.main .bottom-info {
+    font-size: 13px;
+    margin: 15px auto;
+    text-align: center;
+    font-weight: 300;
+}
+
+.bottom-info a {
+    color: #585858;
+}
+
+.icon-container button {
+    padding: 10px;
+    background: none;
+    border: none;
+    outline: none;
+    border-radius: 100vh;
+    cursor: pointer;
+    display: -ms-grid;
+    display: grid;
+    place-items: center;
+}
+
+.icon-container button:hover {
+    background-color: #e8eaed;
+}

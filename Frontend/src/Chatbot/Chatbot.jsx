@@ -1,4 +1,5 @@
 // SimpleChat.jsx
+import "./Chatbot.css";
 import React, { useState } from "react";
 import axios from "axios";
 import Navbar from "../Components/Navbar/Navbar"
@@ -37,8 +38,8 @@ const Chatbot = () => {
 
   return (
     <>
-      <Navbar />
-      <div style={{ backgroundColor: "red", width: "400px", marginTop: "200px", margin: "50px auto", fontFamily: "Arial" }}>
+      {/* <Navbar /> */}
+      {/* <div style={{ backgroundColor: "red", width: "400px", marginTop: "200px", margin: "50px auto", fontFamily: "Arial" }}>
         <h2 >SentraMind AI ChatBot</h2>
         <input
           type="text"
@@ -68,11 +69,11 @@ const Chatbot = () => {
             <strong>AI:</strong> {response}
           </div>
         )}
-      </div>
+      </div> */}
 
 
 
-      <div className="">
+      <div className="chatbot">
         <Sidebar />
         <Main />
       </div>
@@ -80,7 +81,7 @@ const Chatbot = () => {
       <br /><br />
       
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };
