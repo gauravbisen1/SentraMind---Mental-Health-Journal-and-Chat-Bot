@@ -47,6 +47,19 @@ router.post("/login", (req, res, next) => {
   })(req, res, next);
 });
 
+router.get("/logout",(req,res,next)=>{
+  req.logOut((err)=>{
+    if (err) {
+      return next(err);
+    }
+    // Destroy session completely
+    req.session.destroy(() => {
+      res.clearCookie("connect.sid"); // clear session cookie
+      res.status(200).json({ message: "Logged out successfully" });
+    });
+  })
+})
+
 
 module.exports = router;
 

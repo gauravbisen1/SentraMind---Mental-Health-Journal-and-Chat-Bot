@@ -5,6 +5,7 @@ export const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
+  
 
   useEffect(() => {
     axios.get("http://localhost:8080/new", { withCredentials: true })
