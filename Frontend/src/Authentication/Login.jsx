@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "./AuthProvider";
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -8,6 +10,9 @@ function Login() {
   });
 
   const [message, setMessage] = useState("");
+  const { setUser } = useContext(AuthContext); // global auth state
+  const navigate = useNavigate();
+
 
   // handle input change
   const handleChange = (e) => {
@@ -27,8 +32,14 @@ function Login() {
       setMessage(res.data.message);
       console.log("User:", res.data.user);
 
+      // update global auth state
+      setUser(res.data.user);
+
       // you could also save user data in localStorage
       localStorage.setItem("user", JSON.stringify(res.data.user));
+
+      // redirect after login
+      navigate("/");
 
     } catch (err) {
       setMessage(err.response?.data?.message || "Login failed");

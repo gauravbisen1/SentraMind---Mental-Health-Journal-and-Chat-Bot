@@ -1,6 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { createBrowserRouter, RouterProvider } from 'react-router'
+import { BrowserRouter, createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
 import Chatbot from './Chatbot/Chatbot.jsx'
@@ -10,12 +10,16 @@ import NewSentiment from './Components/Sentiment/NewSentiment.jsx'
 import EditSentiment from './Components/Sentiment/EditSentiment.jsx'
 import Login from './Authentication/Login.jsx'
 import SignUp from './Authentication//SignUp.jsx'
+import { AuthProvider } from './Authentication/AuthProvider.jsx'
 
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Layout />,
+    children: [
+      
+    ]
   },
   {
     path: "/chatbot",
@@ -23,31 +27,32 @@ const router = createBrowserRouter([
   },
   {
     path: "/details/:id",
-    element: <Details/>
+    element: <Details />
   },
-  { 
-    path: "/details/:id/edit", 
-    element: <EditSentiment /> 
+  {
+    path: "/details/:id/edit",
+    element: <EditSentiment />
   },
   {
     path: "/new",
     element: <NewSentiment />
   },
   {
-    path: "/login",
-    element: <Login/>
+    path: "login",
+    element: <Login />
   },
   {
-    path: "/signup",
-    element: <SignUp/>
+    path: "signup",
+    element: <SignUp />
   }
-  
-  
+
+
 ])
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {/* <App /> */}
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )

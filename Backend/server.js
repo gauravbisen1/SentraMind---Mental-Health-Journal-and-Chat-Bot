@@ -14,6 +14,13 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js")
 const userRouter = require("./routes/user.js")
+const { isLoggedIn } = require('./middlewares/middleware.js');
+
+// allow frontend origin(cors)
+app.use(cors({
+    origin: "http://localhost:5173",  // your React app
+    credentials: true,               // allow cookies/credentials
+}));
 
 const sessionOptions = {
     secret : "mySuperSecretCode",
@@ -27,12 +34,18 @@ const sessionOptions = {
 };
 app.use(session(sessionOptions)); //session work successfully
 
+
 //authentication
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+//middleware
+app.get('/new', isLoggedIn, (req, res) => {
+    res.json({ user: req.user });
+});
 
 //demo user
 app.get("/demouser", async(req,res) =>{
@@ -44,11 +57,7 @@ app.get("/demouser", async(req,res) =>{
     res.json(registeredUser);
 })
 
-// allow frontend origin
-app.use(cors({
-    origin: "http://localhost:5173",  // your React app
-    credentials: true,               // allow cookies/credentials
-}));
+
 
 app.listen(8080,()=>{
     console.log("server is listening to port 8080");

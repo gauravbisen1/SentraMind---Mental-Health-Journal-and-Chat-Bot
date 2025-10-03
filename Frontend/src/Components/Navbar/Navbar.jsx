@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import logo from "../../assets/sun.png"
-import {Link} from "react-router"
+import { Link } from "react-router-dom"
 import { RiMenu3Line, RiCloseLine } from "react-icons/ri"
 import "./Navbar.css"
 
@@ -28,8 +28,12 @@ const Navbar = () => {
         <div className="navbar-wrapper">
 
           <div className="navbar-sign">
-            <p>Sign in</p>
-            <button type='button'>Sign up</button>
+            <Link to="/login">
+              <p >Sign in</p>
+            </Link>
+            <Link to="/signup">
+              <button type='button'>Sign up</button>
+            </Link>
           </div>
           {/* Responsive part for mobiles devices */}
           {/* hamburger menu */}
@@ -44,8 +48,12 @@ const Navbar = () => {
                   <Menu />
                 </div>
                 <div className="navbar-menu_container-links-sign">
-                  <p>Sign in</p>
-                  <button type='button'>Sign up</button>
+                  <Link to="/login">
+                    <p>Sign in</p>
+                  </Link>
+                  <Link to="/signup">
+                    <button type='button'>Sign up</button>
+                  </Link>
                 </div>
               </div>
             }
