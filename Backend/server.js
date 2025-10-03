@@ -9,10 +9,45 @@ const ExpressError = require("./utils/ExpressError.js");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const cors = require("cors");
+const session = require("express-session");
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
+const User = require("./models/user.js")
+const userRouter = require("./routes/user.js")
+
+const sessionOptions = {
+    secret : "mySuperSecretCode",
+    resave : false,
+    saveUninitialized : true,
+    cookie: {
+        expires: Date.now() + 7 * 24 * 60 * 60 *1000 ,
+        maxAge: 7 * 24 * 60 * 60 *1000 ,//for 7 days
+        httpOnly: true,
+    }
+};
+app.use(session(sessionOptions)); //session work successfully
+
+//authentication
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+//demo user
+app.get("/demouser", async(req,res) =>{
+    let fakeUser = new User({
+        email: "gaurav@gmail.com",
+        username: "gaurav",
+    });
+    let registeredUser = await User.register(fakeUser,"hello123");
+    res.json(registeredUser);
+})
 
 // allow frontend origin
 app.use(cors({
-    origin: "http://localhost:5173"  // your React app
+    origin: "http://localhost:5173",  // your React app
+    credentials: true,               // allow cookies/credentials
 }));
 
 app.listen(8080,()=>{
@@ -36,8 +71,12 @@ main().then(()=>{
 
 //listing routes
 app.use("/sentra",listings);
+
 //ai
 app.use("/api", chatRoutes);
+
+//user route
+app.use("/",userRouter);
 
 //for remain path.
 app.all("/*path",(req,res,next)=>{

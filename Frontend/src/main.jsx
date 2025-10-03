@@ -8,6 +8,9 @@ import Details from './Components/Sentiment/Details.jsx'
 import Layout from './Layout.jsx'
 import NewSentiment from './Components/Sentiment/NewSentiment.jsx'
 import EditSentiment from './Components/Sentiment/EditSentiment.jsx'
+import Login from './Authentication/Login.jsx'
+import SignUp from './Authentication//SignUp.jsx'
+
 
 const router = createBrowserRouter([
   {
@@ -29,6 +32,14 @@ const router = createBrowserRouter([
   {
     path: "/new",
     element: <NewSentiment />
+  },
+  {
+    path: "/login",
+    element: <Login/>
+  },
+  {
+    path: "/signup",
+    element: <SignUp/>
   }
   
   
