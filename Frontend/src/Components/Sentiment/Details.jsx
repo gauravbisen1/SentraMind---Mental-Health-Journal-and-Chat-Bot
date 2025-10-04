@@ -5,6 +5,8 @@ const Details = () => {
   const { id } = useParams();
   const [article, setArticle] = useState(null);
   const navigate = useNavigate();
+  // Get logged-in user (from localStorage after login)
+  const currentUser = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
     fetch(`http://localhost:8080/sentra/${id}`)
@@ -23,6 +25,7 @@ const Details = () => {
     try {
       const res = await fetch(`http://localhost:8080/sentra/${id}`, {
         method: "DELETE",
+        credentials: "include"
       });
 
       if (res.ok) {
@@ -40,14 +43,31 @@ const Details = () => {
 
   if (!article) return <p>Loading...</p>;
 
+  // ✅ check authorization
+  const canEdit =
+    currentUser &&
+    (currentUser._id === article.owner || currentUser.role === "admin");
+
   return (
     <div style={{ padding: "20px" }}>
       <h2>{article.text}</h2>
       <p><strong>User:</strong> {article.user}</p>
       <p><strong>Sentiment:</strong> {article.sentiment || "Not analyzed"}</p>
       <p><strong>Date:</strong> {article.date}</p>
-      <button onClick={() => navigate(`/details/${id}/edit`)}>edit</button><br /><br />
-      <button onClick={handleDelete} style={{ color: "white", background: "red", padding: "5px 10px" }}>delete</button>
+
+      {canEdit && (
+        <>
+          <button onClick={() => navigate(`/details/${id}/edit`)}>Edit</button>
+          <br />
+          <br />
+          <button
+            onClick={handleDelete}
+            style={{ color: "white", background: "red", padding: "5px 10px" }}
+          >
+            Delete
+          </button>
+        </>
+      )}
     </div>
   );
 };

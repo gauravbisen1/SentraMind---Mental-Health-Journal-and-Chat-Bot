@@ -17,8 +17,10 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:8080/signup", formData);
+      const res = await axios.post("http://localhost:8080/signup", formData,{withCredentials: true});
       alert(res.data.message);
+      // Redirect user to dashboard/home
+      window.location.href = "/";
     } catch (err) {
       alert(err.response?.data?.message || "Signup failed");
     }
@@ -26,12 +28,12 @@ function Signup() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
         <input type="text" name="username" placeholder="Username" onChange={handleChange} />
         <input type="email" name="email" placeholder="Email" onChange={handleChange} />
         <input type="password" name="password" placeholder="Password" onChange={handleChange} />
         <button type="submit">Sign Up</button>
-      </form>
+      </form> */}
 
       <div className="login-main">
         <div className="login-left">

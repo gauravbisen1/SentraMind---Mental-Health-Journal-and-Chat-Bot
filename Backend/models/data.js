@@ -15,6 +15,11 @@ const dataSchema = new Schema({
             return `${day} ${month} ${year}`;
         }
     },
+    owner: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        required: true
+    }
 });
 
 const data = mongoose.model("data",dataSchema);

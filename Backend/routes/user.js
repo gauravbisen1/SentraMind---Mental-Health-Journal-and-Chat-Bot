@@ -14,10 +14,21 @@ router.post("/signup", wrapAsync(async (req, res) => {
 
     const newUser = new user({ email, username });
     const registeredUser = await user.register(newUser, password);
+
     console.log(registeredUser);
-    return res.status(201).json({
-      message: "User created successfully!",
-      user: registeredUser
+    // return res.status(201).json({
+    //   message: "User created successfully!",
+    //   user: registeredUser
+    // });
+     // login user immediately after signup
+     req.login(registeredUser, (err) => {
+      if (err) {
+        return res.status(500).json({ message: "Error logging in user after signup", error: err.message });
+      }
+      return res.status(201).json({
+        message: "User created and logged in successfully!",
+        user: registeredUser
+      });
     });
     
   } catch (err) {
@@ -37,6 +48,9 @@ router.post("/login", (req, res, next) => {
     // log the user in
     req.logIn(user, (err) => {
       if (err) return next(err);
+
+    console.log(user);
+
 
       // success
       return res.status(200).json({

@@ -13,7 +13,7 @@ const NewSentiment = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8080/sentra", form);
+      await axios.post("http://localhost:8080/sentra", form,{ withCredentials: true });
       navigate("/"); // go back to home after creating
     } catch (err) {
       console.error(err);

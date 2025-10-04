@@ -5,6 +5,8 @@ import Article from './Article'
 import "./Sentiment.css"
 
 const Sentiment = () => {
+  const currentUser = JSON.parse(localStorage.getItem("user"));
+
   const navigate = useNavigate();
   const [allData, setAllData] = useState([]);
   useEffect(() => {
@@ -22,7 +24,9 @@ const Sentiment = () => {
            key={user._id}
            _id = {user._id}
            date={user.date} 
-           title={user.text} />
+           title={user.text}
+           owner={user.owner}
+            currentUser={currentUser} />
         ))}
 
 
