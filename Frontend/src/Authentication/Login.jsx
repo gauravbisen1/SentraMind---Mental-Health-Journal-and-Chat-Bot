@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import axios from "axios";
+import "./login.css";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 
@@ -47,31 +48,92 @@ function Login() {
   };
 
   return (
-    <div style={{ maxWidth: "400px", margin: "50px auto" }}>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="username"
-          placeholder="Enter username"
-          value={formData.username}
-          onChange={handleChange}
-          required
-        />
-        <br /><br />
-        <input
-          type="password"
-          name="password"
-          placeholder="Enter password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-        <br /><br />
-        <button type="submit">Login</button>
-      </form>
-      {message && <p>{message}</p>}
-    </div>
+    <>
+      {/* <div style={{ maxWidth: "400px", margin: "50px auto" }}>
+        <h2>Login</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="username"
+            placeholder="Enter username"
+            value={formData.username}
+            onChange={handleChange}
+            required
+          />
+          <br /><br />
+          <input
+            type="password"
+            name="password"
+            placeholder="Enter password"
+            value={formData.password}
+            onChange={handleChange}
+            required
+          />
+          <br /><br />
+          <button type="submit">Login</button>
+        </form>
+        {message && <p>{message}</p>}
+      </div> */}
+
+      <div className="login-main">
+        <div className="login-left">
+          <img src="" alt="img" />
+        </div>
+        <div className="login-right">
+          <div className="login-right-container">
+            <div className="login-logo">
+              <img src="" alt="logo" />
+            </div>
+            <div className="login-center">
+              <h2>Welcome back!</h2>
+              <p>Please enter your details</p>
+              <form onSubmit={handleSubmit}>
+                <input
+                  type="text"
+                  name="username"
+                  placeholder="Enter username"
+                  value={formData.username}
+                  onChange={handleChange}
+                  required />
+                <div className="pass-input-div">
+                  <input 
+                    type="password"
+                    name="password"
+                    placeholder="Enter password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    required />
+                </div>
+
+                <div className="login-center-options">
+                  {/* <div className="remember-div">
+                    <input type="checkbox" id="remember-checkbox" />
+                    <label htmlFor="remember-checkbox">
+                      Remember for 30 days
+                    </label>
+                  </div> */}
+                  {/* <a href="#" className="forgot-pass-link">
+                    Forgot password?
+                  </a> */}
+                </div>
+                <div className="login-center-buttons">
+                  <button className="btn" type="submit">Log In</button>
+                  {message && <p>{message}</p>}
+                  {/* <button type="button">
+                    <img src="" alt="" />
+                    Log In with Google
+                  </button> */}
+                </div>
+              </form>
+            </div>
+
+            <p className="login-bottom-p">
+              Don't have an account? <a href="/signup">Sign Up</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
