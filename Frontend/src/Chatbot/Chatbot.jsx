@@ -77,8 +77,6 @@ const Chatbot = () => {
         <Sidebar />
         <Main />
       </div>
-
-      <br /><br />
       
 
       {/* <Footer /> */}

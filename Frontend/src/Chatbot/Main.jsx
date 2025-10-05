@@ -40,36 +40,39 @@ const Main = () => {
                         className="profile"
                     />
                 </div>
-                <div className="main-container">
-                    <div className="greet">
-                        <p><span>Hello, Dev</span></p>
-                        <p>How can I help you today?</p>
-                    </div>
-                </div>
-                <div className="cards">
-                    <div className="card"
-                    >
-                        <p>Suggest beautiful places to see on an upcoming road trip</p>
-                        <img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
-                    </div>
-                    <div className="card"
-                    >
-                        <p>Briefly summarize this concept: urban planning</p>
-                        <img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
-                    </div>
-                    <div className="card"
-                    >
-                        <p>Brainstorm team bonding activities for our work retreat</p>
-                        <img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
-                    </div>
-                    <div className="card">
-                        <p>Tell me about React js and React native</p>
-                        <img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
-                    </div>
 
-                </div>
-                {/* output  */}
-                {response && (
+                {!response ? (
+                    <>
+                        <div className="main-container ">
+                            <div className="greet">
+                                <p><span>Hello, Friend</span></p>
+                                <p>How can I help you today?</p>
+                            </div>
+                        </div>
+                        <div className="cards">
+                            <div className="card"
+                            >
+                                <p>Suggest beautiful places to see on an upcoming road trip</p>
+                                <img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                            </div>
+                            <div className="card"
+                            >
+                                <p>Briefly summarize this concept: urban planning</p>
+                                <img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                            </div>
+                            <div className="card"
+                            >
+                                <p>Brainstorm team bonding activities for our work retreat</p>
+                                <img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                            </div>
+                            <div className="card">
+                                <p>Tell me about React js and React native</p>
+                                <img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                            </div>
+
+                        </div>
+                    </>
+                ) : (
                     <div
                         style={{
                             marginTop: "20px",
@@ -82,32 +85,34 @@ const Main = () => {
                         <strong>AI:</strong> {response}
                     </div>
                 )}
+
+                
                 <div className="main-bottom">
-                    <div className="search-box">
-                        <textarea
-                            value={input}
-                            onChange={(e) => setInput(e.target.value)}
-                            onKeyDown={handleKeyPress}
-                            type="text"
-                            placeholder="Enter a prompt here"
-                        />
-                        <div className="icon-container">
-                            <button><img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></button>
-                            <button><img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></button>
-                            <button onClick={handleSend}
-                                style={{ padding: "10px 20px", cursor: "pointer" }}
-                                disabled={loading} type="submit"  >{loading ? "Thinking..." : "Send"}<img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></button>
-                        </div>
-                    </div>
-                    <p className="bottom-info">
-                        Gemini may display inaccurate info, including about people, so double-check its responses.
-                        <a href="#">Your privacy and Gemini Apps</a>
-                    </p>
+            <div className="search-box">
+                <textarea
+                    value={input}
+                    onChange={(e) => setInput(e.target.value)}
+                    onKeyDown={handleKeyPress}
+                    type="text"
+                    placeholder="Enter a prompt here"
+                />
+                <div className="icon-container">
+                    <button><img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></button>
+                    <button><img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></button>
+                    <button onClick={handleSend}
+                        style={{ padding: "10px 20px", cursor: "pointer" }}
+                        disabled={loading} type="submit"  >{loading ? "Thinking..." : "Send"}<img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></button>
                 </div>
-
-
-
             </div>
+            <p className="bottom-info">
+                Gemini may display inaccurate info, including about people, so double-check its responses.
+                <a href="#">Your privacy and Gemini Apps</a>
+            </p>
+        </div>
+
+
+
+            </div >
         </>
     )
 }

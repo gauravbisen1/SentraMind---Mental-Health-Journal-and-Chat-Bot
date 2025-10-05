@@ -1,18 +1,23 @@
 .main {
-    /* background-color: darkgray; */
     flex: 1;
+    height: 100vh;
     max-height: 100vh;
     position: relative;
-    /* overflow-y: auto; */
-    margin-bottom: 120px;
+    /* overflow-x: hidden; */
 }
+
+.scrollable-content {
+    flex: 1;
+    overflow-y: auto;
+}
+
 
 .top {
     align-items: center;
     padding: 20px 15px;
     display: flex;
     justify-content: space-between;
-    padding-bottom: 100px;
+    /* padding-bottom: 100px; */
 }
 
 .top p {
@@ -38,7 +43,7 @@
 }
 
 .main .greet span {
-    background: -webkit-linear-gradient(16deg, #4b90ff, #ff5546);
+    background: linear-gradient(89.97deg, #9be7a1 1.84%, #1B4332 102.67%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -51,7 +56,7 @@
     gap: 15px;
     padding: 10px 200px;
     overflow-x: auto;
-    margin-bottom: 10rem;
+    margin-bottom: 8rem;
 }
 
 .cards::-webkit-scrollbar {
@@ -90,13 +95,13 @@
 .main-bottom {
     position: fixed;
     bottom: 0;
-    padding: 2px 200px;
-    margin: auto;
+    padding: 2px 210px;
     background-color: white;
     box-shadow: #ffffff 0 -20px 50px;
 }
 
 .search-box {
+    height: 75px;
     display: flex;
     align-items: center;
     justify-content: space-between;
