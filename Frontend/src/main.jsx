@@ -11,6 +11,7 @@ import EditSentiment from './Components/Sentiment/EditSentiment.jsx'
 import Login from './Authentication/Login.jsx'
 import SignUp from './Authentication//SignUp.jsx'
 import { AuthProvider } from './Authentication/AuthProvider.jsx'
+import Dashboard from './Dashboard/Dashboard.jsx'
 
 
 const router = createBrowserRouter([
@@ -44,9 +45,11 @@ const router = createBrowserRouter([
   {
     path: "signup",
     element: <SignUp />
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />
   }
-
-
 ])
 
 createRoot(document.getElementById('root')).render(

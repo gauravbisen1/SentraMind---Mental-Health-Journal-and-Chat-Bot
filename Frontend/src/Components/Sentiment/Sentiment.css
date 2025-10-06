@@ -5,3 +5,9 @@
     gap: 1rem;
     align-items: stretch; /* equal height for all */
   }
+  .btn{
+    padding: 20px 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

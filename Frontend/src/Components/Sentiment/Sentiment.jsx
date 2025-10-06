@@ -7,6 +7,7 @@ import { AuthContext } from "../../Authentication/AuthProvider";
 
 const Sentiment = () => {
   const { user } = useContext(AuthContext); // access logged-in user
+  
 
   const currentUser = JSON.parse(localStorage.getItem("user"));
 
@@ -24,20 +25,21 @@ const Sentiment = () => {
       <div className="articles-grid">
         {allData.map((user) => (
           <Article
-           key={user._id}
-           _id = {user._id}
-           date={user.date} 
-           title={user.text}
-           owner={user.owner}
+            key={user._id}
+            _id={user._id}
+            date={user.date}
+            title={user.text}
+            owner={user.owner}
             currentUser={currentUser} />
         ))}
 
 
       </div>
 
-      {user && 
-              <button onClick={() => navigate("/new")}>New Sentiment</button>
-
+      {user &&
+        <div className="btn">
+          <button type="button" class="btn btn-success btn-lg " onClick={() => navigate("/new")}>New Sentiment</button>
+        </div>
       }
 
     </>

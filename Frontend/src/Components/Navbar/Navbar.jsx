@@ -65,7 +65,7 @@ const Navbar = () => {
                   fontWeight: "bold"
                 }}
               >
-                {user.name ? user.name.charAt(0).toUpperCase() : "U"}
+                {user.name ? user.name.charAt(0).toUpperCase() : <i class="fa-solid fa-user"></i>}
               </div>
 
               {dropdownOpen && (
@@ -96,6 +96,20 @@ const Navbar = () => {
                   >
                     Logout
                   </button>
+                  <Link
+                    to="/dashboard"
+                    style={{
+                      background: "transparent",
+                      border: "none",
+                      cursor: "pointer",
+                      padding: "8px 12px",
+                      width: "100%",
+                      textAlign: "left",
+                      fontSize: "14px",
+                    }}
+                  >
+                    Dashboard
+                  </Link>
                 </div>
               )}
             </div>
