@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import axios from "axios"
 import Article from './Article'
 import "./Sentiment.css"
+import { AuthContext } from "../../Authentication/AuthProvider";
 
 const Sentiment = () => {
+  const { user } = useContext(AuthContext); // access logged-in user
+
   const currentUser = JSON.parse(localStorage.getItem("user"));
 
   const navigate = useNavigate();
@@ -16,7 +19,7 @@ const Sentiment = () => {
   }, []);
   return (
     <>
-      <h2 className='text-center'>ALL Data ({allData.length})</h2>
+      <h2 className='text-center'>A Safe Space for Your Thoughts</h2>
 
       <div className="articles-grid">
         {allData.map((user) => (
@@ -32,7 +35,10 @@ const Sentiment = () => {
 
       </div>
 
-      <button onClick={() => navigate("/new")}>New Sentiment</button>
+      {user && 
+              <button onClick={() => navigate("/new")}>New Sentiment</button>
+
+      }
 
     </>
 
