@@ -21,6 +21,8 @@ const NewSentiment = () => {
   };
 
   return (
+    <>
+    <div className="">
     <form onSubmit={handleSubmit} style={{ padding: "20px" }}>
       <h2>Create New Sentiment</h2>
       <input
@@ -39,6 +41,8 @@ const NewSentiment = () => {
       />
       <button type="submit">Save</button>
     </form>
+    </div>
+    </>
   );
 };
 
