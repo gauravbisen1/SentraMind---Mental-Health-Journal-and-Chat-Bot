@@ -10,6 +10,15 @@ const Sentiment = () => {
   const [showPopup, setShowPopup] = useState(false);
   const { user } = useContext(AuthContext); // access logged-in user
 
+  const fetchData = () => {
+    axios.get("http://localhost:8080/sentra").then((res) => {
+      setAllData(res.data);
+    });
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const currentUser = JSON.parse(localStorage.getItem("user"));
 
@@ -45,7 +54,7 @@ const Sentiment = () => {
       }
 
       {showPopup && (
-          <NewSentiment onClose={() => setShowPopup(false)}/>
+          <NewSentiment onClose={() => setShowPopup(false)} onSaved={fetchData}/>
       )}
 
     </>

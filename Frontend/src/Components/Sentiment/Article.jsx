@@ -12,6 +12,8 @@ const Article = ({_id , date, title , owner , currentUser }) => {
           
           <p>{date}</p>
           <h3>{title}</h3>
+
+          
           <Link to={`/details/${_id}`} className="read-link">
           Read Full Article
           </Link>

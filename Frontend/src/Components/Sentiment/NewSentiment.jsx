@@ -3,7 +3,7 @@ import "./NewSentiment.css"
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const NewSentiment = ({onClose}) => {
+const NewSentiment = ({onClose,onSaved}) => {
   const [form, setForm] = useState({ user: "", text: "" });
   const navigate = useNavigate();
 
@@ -15,7 +15,9 @@ const NewSentiment = ({onClose}) => {
     e.preventDefault();
     try {
       await axios.post("http://localhost:8080/sentra", form,{ withCredentials: true });
-      navigate("/"); // go back to home after creating
+      // navigate("/"); // go back to home after creating
+      onSaved();   // refresh posts
+      onClose();
     } catch (err) {
       console.error(err);
     }
