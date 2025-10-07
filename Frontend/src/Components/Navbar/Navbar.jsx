@@ -65,7 +65,7 @@ const Navbar = () => {
                   fontWeight: "bold"
                 }}
               >
-                {user.name ? user.name.charAt(0).toUpperCase() : <i class="fa-solid fa-user"></i>}
+                {user.name ? user.name.charAt(0).toUpperCase() : <i className="fa-solid fa-user"></i>}
               </div>
 
               {dropdownOpen && (

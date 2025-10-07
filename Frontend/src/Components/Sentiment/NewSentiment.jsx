@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import "./NewSentiment.css"
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const NewSentiment = () => {
+const NewSentiment = ({onClose}) => {
   const [form, setForm] = useState({ user: "", text: "" });
   const navigate = useNavigate();
 
@@ -22,7 +23,8 @@ const NewSentiment = () => {
 
   return (
     <>
-    <div className="">
+    <div className="popup-overlay">
+    <div className="popup-box">
     <form onSubmit={handleSubmit} style={{ padding: "20px" }}>
       <h2>Create New Sentiment</h2>
       <input
@@ -39,9 +41,14 @@ const NewSentiment = () => {
         value={form.text}
         onChange={handleChange}
       />
-      <button type="submit">Save</button>
+      <button className="btn btn-primary" type="submit">Save</button>
+      <button className="btn btn-primary" onClick={onClose}>
+          Close
+      </button>
     </form>
     </div>
+    </div>
+    
     </>
   );
 };

@@ -4,10 +4,12 @@ import axios from "axios"
 import Article from './Article'
 import "./Sentiment.css"
 import { AuthContext } from "../../Authentication/AuthProvider";
+import NewSentiment from "./NewSentiment"
 
 const Sentiment = () => {
+  const [showPopup, setShowPopup] = useState(false);
   const { user } = useContext(AuthContext); // access logged-in user
-  
+
 
   const currentUser = JSON.parse(localStorage.getItem("user"));
 
@@ -38,9 +40,13 @@ const Sentiment = () => {
 
       {user &&
         <div className="btn">
-          <button type="button" class="btn btn-success btn-lg " onClick={() => navigate("/new")}>New Sentiment</button>
+          <button type="button" className="btn btn-success btn-lg " onClick={() => setShowPopup(true)}>New Sentiment</button>
         </div>
       }
+
+      {showPopup && (
+          <NewSentiment onClose={() => setShowPopup(false)}/>
+      )}
 
     </>
 

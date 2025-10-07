@@ -6,7 +6,7 @@
     align-items: stretch; /* equal height for all */
   }
   .btn{
-    padding: 20px 250px;
+    padding: 20px 200px;
     display: flex;
     justify-content: center;
     align-items: center;
