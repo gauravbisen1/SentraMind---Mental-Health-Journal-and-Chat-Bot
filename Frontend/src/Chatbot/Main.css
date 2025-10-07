@@ -82,6 +82,15 @@
     bottom: 10px;
     right: 10px;
 }
+.main .card i {
+    width: 50px;
+    padding: 8px;
+    position: absolute;
+    background-color: white;
+    border-radius: 20px;
+    bottom: 10px;
+    right: 10px;
+}
 
 .main .card p {
     color: #585858;

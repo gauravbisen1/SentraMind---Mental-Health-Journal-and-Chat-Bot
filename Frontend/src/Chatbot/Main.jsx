@@ -2,6 +2,7 @@ import './Main.css'
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios"
 
+
 const formatTime = (iso) => {
     const d = new Date(iso);
     return d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
@@ -106,28 +107,29 @@ const Main = () => {
                         <div className="main-container ">
                             <div className="greet">
                                 <p><span>Hello, Friend</span></p>
-                                <p>How can I help you today?</p>
+                                <p>Let’s talk, even if it’s just a little.</p>
                             </div>
                         </div>
                         <div className="cards">
                             <div className="card"
                             >
-                                <p>Suggest beautiful places to see on an upcoming road trip</p>
-                                <img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                                <p>Share something you’re grateful for today</p>
+                                <i class="fa-solid fa-person-praying fa-2x"></i>
                             </div>
                             <div className="card"
                             >
-                                <p>Briefly summarize this concept: urban planning</p>
-                                <img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                                <p>How are you feeling right now? Describe it in a few words</p>
+                                <i class="fa-solid fa-dove fa-2x"></i>
                             </div>
                             <div className="card"
                             >
-                                <p>Brainstorm team bonding activities for our work retreat</p>
-                                <img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                                <p>Write about a recent challenge and how you handled it</p>
+                                {/* <img src={bracket} alt="" /> */}
+                                <i class="fa-solid fa-peace fa-2x"></i>
                             </div>
                             <div className="card">
-                                <p>Tell me about React js and React native</p>
-                                <img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                                <p>Reflect on a positive memory that makes you smile</p>
+                                <i class="fa-solid fa-hand-peace fa-2x"></i>
                             </div>
 
                         </div>
@@ -184,12 +186,12 @@ const Main = () => {
                         rows={1}
                     />
                     <div className="icon-container">
-                        <button><img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></button>
-                        <button><img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></button>
+                        {/* <button><img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></button>
+                        <button><img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></button> */}
                         <button onClick={handleSend}
                             style={{ padding: "10px 20px",
                              cursor: "pointer" }}
-                            disabled={loading} type="submit"  >{loading ? "Thinking..." : "Send"}<img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" /></button>
+                            disabled={loading} type="submit"  >{loading ? "Thinking..." : <i className="fa-solid fa-arrow-right fa-2x"></i>}</button>
                     </div>
                 </div>
                 <p className="bottom-info">
