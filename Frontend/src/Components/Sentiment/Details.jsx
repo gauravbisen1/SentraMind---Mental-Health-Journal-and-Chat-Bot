@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams , useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import EditSentiment from "./EditSentiment"
 
-const Details = () => {
-  const { id } = useParams();
+const Details = ({ id, onClose }) => {
+  const [showPopup, setShowPopup] = useState(false);
+
+  // const { id } = useParams();
   const [article, setArticle] = useState(null);
   const navigate = useNavigate();
   // Get logged-in user (from localStorage after login)
@@ -57,7 +60,14 @@ const Details = () => {
 
       {canEdit && (
         <>
-          <button onClick={() => navigate(`/details/${id}/edit`)}>Edit</button>
+          <button onClick={() => setShowPopup(true)}>Edit</button>
+
+          {showPopup && (
+            <EditSentiment onClose={() => setShowPopup(false)} id={article._id}  onSaved={(updatedArticle) => {
+              setArticle(updatedArticle); // update state so UI refreshes immediately
+              setShowPopup(false);        // close popup
+            }} />
+          )}
           <br />
           <br />
           <button
@@ -68,6 +78,7 @@ const Details = () => {
           </button>
         </>
       )}
+      <button type="button" onClick={onClose}>Close</button>
     </div>
   );
 };

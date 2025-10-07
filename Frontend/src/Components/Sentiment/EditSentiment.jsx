@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import "./EditSentiment.css"
 
-const EditSentiment = () => {
-  const { id } = useParams();
+const EditSentiment = ({id , onClose , onSaved}) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     user: "",
@@ -16,8 +16,8 @@ const EditSentiment = () => {
       .then((res) => res.json())
       .then((data) => {
         setFormData({
-          user: data.user,
-          text: data.text,
+          user: data.user || "",
+          text: data.text || "",
           sentiment: data.sentiment || ""
         });
       })
@@ -40,12 +40,14 @@ const EditSentiment = () => {
         headers: {
           "Content-Type": "application/json"
         },
+        credentials: "include",
         body: JSON.stringify(formData)
       });
 
       if (res.ok) {
-        alert("Updated successfully!");
-        navigate(`/details/${id}`); // back to details page
+        const updatedData = await res.json();
+      alert("Updated successfully!");
+      if (onSaved) onSaved(updatedData); // notify parent of update
       } else {
         const errData = await res.json();
         alert(errData.error || "Failed to update.");
@@ -57,6 +59,8 @@ const EditSentiment = () => {
   };
 
   return (
+    <div className="popup-overlay">
+    <div className="popup-box">
     <div style={{ padding: "20px" }}>
       <h2>Edit Sentiment</h2>
       <form onSubmit={handleSubmit}>
@@ -87,7 +91,12 @@ const EditSentiment = () => {
         <br />
 
         <button type="submit">Save</button>
+        <button type="button" className="btn btn-primary" onClick={onClose}>
+          Close
+      </button>
       </form>
+    </div>
+    </div>
     </div>
   );
 };

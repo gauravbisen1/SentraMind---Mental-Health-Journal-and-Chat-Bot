@@ -1,0 +1,23 @@
+/* Popup box in center */
+.popup-box {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    min-width: 350px;
+    max-width: 500px;
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.3);
+    animation: fadeIn 0.3s ease;
+  }
+  
+  /* Fade-in animation */
+  @keyframes fadeIn {
+    from {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  

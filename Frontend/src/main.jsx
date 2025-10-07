@@ -4,7 +4,6 @@ import { BrowserRouter, createBrowserRouter, RouterProvider } from 'react-router
 import './index.css'
 import App from './App.jsx'
 import Chatbot from './Chatbot/Chatbot.jsx'
-import Details from './Components/Sentiment/Details.jsx'
 import Layout from './Layout.jsx'
 import EditSentiment from './Components/Sentiment/EditSentiment.jsx'
 import Login from './Authentication/Login.jsx'
@@ -25,10 +24,7 @@ const router = createBrowserRouter([
     path: "/chatbot",
     element: <Chatbot />
   },
-  {
-    path: "/details/:id",
-    element: <Details />
-  },
+  
   {
     path: "/details/:id/edit",
     element: <EditSentiment />

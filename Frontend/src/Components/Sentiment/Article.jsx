@@ -2,7 +2,7 @@ import React from 'react'
 import "./Article.css"
 import { Link } from "react-router-dom";
 
-const Article = ({_id , date, title , owner , currentUser }) => {
+const Article = ({_id , date, title , owner , currentUser , onReadMore }) => {
   const canEdit = currentUser && (currentUser._id === owner || currentUser.role === "admin");
     return (
       
@@ -14,9 +14,12 @@ const Article = ({_id , date, title , owner , currentUser }) => {
           <h3>{title}</h3>
 
           
-          <Link to={`/details/${_id}`} className="read-link">
+          {/* <Link to={`/details/${_id}`} className="read-link">
           Read Full Article
-          </Link>
+          </Link> */}
+          <button className="btn-read read-link" onClick={() => onReadMore(_id)}>
+          Read Full Post <i className="fa-solid fa-caret-down"></i>
+        </button>
          
           
         </div>
