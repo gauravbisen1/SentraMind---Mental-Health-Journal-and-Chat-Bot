@@ -42,6 +42,7 @@ const Sentiment = () => {
             <Article
               key={user._id}
               _id={user._id}
+              user={user.user}
               date={user.date}
               title={user.text}
               owner={user.owner}

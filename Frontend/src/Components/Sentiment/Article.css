@@ -16,19 +16,20 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-  }
-  
-  /* Button fixed at bottom */
-  .btn-read {
-    margin-top: auto; /* pushes it to bottom */
+}
+
+/* Button fixed at bottom */
+.btn-read {
+    margin-top: auto;
+    /* pushes it to bottom */
     border: none;
-    background-color: green;
+    /* background-color: green; */
     border-radius: 30px;
     padding: 0.5rem 1rem;
     color: white;
     font-weight: 600;
     cursor: pointer;
-  }
+}
 
 
 .blog-container_article-content {
@@ -51,8 +52,14 @@
     padding-bottom: 1rem;
 }
 
-.btn-read{
+.btn-read {
+    color: grey;
+    margin-left: 150px;
     border: none;
-    background-color: green;
+    background-color: transparent;
     border-radius: 30px;
+}
+
+.username{
+    color: rgba(173, 170, 170, 0.299);
 }
