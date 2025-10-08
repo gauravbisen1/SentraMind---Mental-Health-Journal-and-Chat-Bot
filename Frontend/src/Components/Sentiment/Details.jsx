@@ -4,7 +4,8 @@ import EditSentiment from "./EditSentiment"
 import "./Details.css"
 
 
-const Details = ({ id, onClose }) => {
+const Details = ({ id, onClose, onDeleted }) => {
+  
   
   const [showPopup, setShowPopup] = useState(false);
 
@@ -35,7 +36,8 @@ const Details = ({ id, onClose }) => {
 
       if (res.ok) {
         alert("Deleted successfully!");
-        navigate("/");   // ✅ go back to homepage (Sentiment list)
+        if (onDeleted) onDeleted();
+        onClose(); 
       } else {
         const errData = await res.json();
         alert(errData.error || "Failed to delete.");

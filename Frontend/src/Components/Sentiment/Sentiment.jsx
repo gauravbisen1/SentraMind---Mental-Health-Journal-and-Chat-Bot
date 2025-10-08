@@ -57,7 +57,7 @@ const Sentiment = () => {
         {/* RIGHT → Selected article details */}
         {selectedArticle && (
           <div className="article-detail">
-            <Details id={selectedArticle} onClose={() => setSelectedArticle(null)} />
+            <Details id={selectedArticle} onClose={() => setSelectedArticle(null)} onDeleted={fetchData} />
           </div>
         )}
       </div>

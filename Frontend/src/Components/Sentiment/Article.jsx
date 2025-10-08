@@ -11,7 +11,7 @@ const Article = ({ _id, user, date, title, owner, currentUser, onReadMore }) => 
       <div className="blog-container_article-content">
 
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <h4 className='username'><i class="fa-solid fa-user"></i> {user}</h4>
+          <h4 className='username'><i className="fa-solid fa-user"></i> {user}</h4>
           <p className="text-muted">{date}</p>
         </div>
 
@@ -22,7 +22,7 @@ const Article = ({ _id, user, date, title, owner, currentUser, onReadMore }) => 
           Read Full Article
           </Link> */}
         <button className="btn-read read-link " onClick={() => onReadMore(_id)}>
-          Read Full Post <i class="fa-solid fa-caret-right"></i>
+          Read Full Post <i className="fa-solid fa-caret-right"></i>
         </button>
 
 
