@@ -1,6 +1,8 @@
 import React from 'react'
 import "./footer.css"
 import logo from "../../assets/sun.png"
+import { Link } from "react-router-dom"
+
 
 const footer = () => {
   return (
@@ -12,18 +14,18 @@ const footer = () => {
         </h1>
       </div>
       <div className="footer-button">
-        <p>Mental Health Chat Bot</p>
+        <Link to="/chatbot"><p>Mental Health Chat Bot</p></Link>
       </div>
+      <br />
       <div className="footer-links">
         <div className="footer-links_logo green-filter">
           <img src={logo} alt="gpt3 logo" />
-          <p>Indore K12 182 DK, All Rights Reserved</p>
+          <p>Indore , All Rights Reserved</p>
         </div>
         <div className="footer-links_div">
           <h4>Links</h4>
           <p>Overons</p>
           <p>Social Media</p>
-          <p>Counters</p>
           <p>Contact</p>
         </div>
         <div className="footer-links_div">
@@ -34,11 +36,12 @@ const footer = () => {
         </div>
         <div className="footer-links_div">
           <h4>Get in touch</h4>
-          <p>Indore K12 182 DK </p>
+          <p>Indore </p>
           <p>+91 9111111111</p>
           <p>support@sentramind.org</p>
         </div>
       </div>
+      <br /><br />
       <div className="footer-copyrights">
         ©2025 SentraMind. All rights reserved.
       </div>

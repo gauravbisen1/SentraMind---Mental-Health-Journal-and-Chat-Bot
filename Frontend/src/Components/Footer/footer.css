@@ -28,6 +28,7 @@
     padding: 1rem;
     word-spacing: 3px;
     cursor: pointer;
+    border-radius: 50px;
 }
 
 .footer-button p {
