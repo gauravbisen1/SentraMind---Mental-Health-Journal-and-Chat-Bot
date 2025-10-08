@@ -7,6 +7,7 @@ import Header from "./Components/Home/header"
 import Blog from './Components/Home/Blog'
 import Cards from "./Components/Home/Cards"
 import Sentiment from './Components/Sentiment/Sentiment';
+import Possibility from './Components/Home/Possibility/Possibility';
 
 
 
@@ -14,10 +15,12 @@ const Layout = () => {
   return (
     <>
         <Navbar/>
-        <Header/>
-        <Sentiment/>
+        
+        <div id='home'><Header /></div>
+        <div id='sentiment'><Sentiment/></div>
         <Outlet/>
-        <Cards/>
+        <Possibility/>
+        <div id='cards'><Cards/></div>
         <Blog/>
         <Disclaimer/>
         <Footer/>

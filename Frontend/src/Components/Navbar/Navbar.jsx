@@ -8,10 +8,10 @@ import axios from "axios"
 
 const Menu = () => (
   <>
-    <p><Link to='/'>Home</Link></p>
+    <p><a href='#home'>Home</a></p>
     <p><Link to='/chatbot'>Chatbot</Link></p>
-    <p><a href='#mental'>Posts</a></p>
-    <p><Link to='/cards'>News</Link></p>
+    <p><a href='#sentiment'>Posts</a></p>
+    <p><a href='#cards'>News</a></p>
     <p><Link to='/dashboard'>Dashboard</Link></p>
   </>
 )
@@ -37,7 +37,10 @@ const Navbar = () => {
     <div className="navbar">
       <div className="navbar-links">
         <div className="navbar-links_logo">
+          <a href="#home">
           <img src={logo} className="green-filter" alt="sun" />
+
+          </a>
         </div>
 
         <div className="navbar-links_container">
