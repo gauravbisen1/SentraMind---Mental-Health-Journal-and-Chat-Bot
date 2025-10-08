@@ -1,6 +1,9 @@
 import { useState } from "react";
 import axios from "axios";
 import "./login.css";
+import sun from "../assets/sun.png"
+import kid from "../assets/kid.jpg"
+
 
 
 function Signup() {
@@ -36,13 +39,13 @@ function Signup() {
       </form> */}
 
       <div className="login-main">
-        <div className="login-left">
-          <img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="img" />
+        <div className="login-left signup-img">
+          <img src={kid}  alt="img" />
         </div>
         <div className="login-right">
           <div className="login-right-container">
             <div className="login-logo">
-              <img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="logo" />
+              <img src={sun} alt="logo" />
             </div>
             <div className="login-center">
               <h2>Welcome back!</h2>

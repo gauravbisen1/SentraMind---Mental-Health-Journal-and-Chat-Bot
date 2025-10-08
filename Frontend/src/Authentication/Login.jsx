@@ -3,6 +3,7 @@ import axios from "axios";
 import "./login.css";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
+import sun from "../assets/sun.png"
 
 function Login() {
   const [formData, setFormData] = useState({
@@ -77,12 +78,12 @@ function Login() {
 
       <div className="login-main">
         <div className="login-left">
-          <img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="img" />
+          <img src="https://plus.unsplash.com/premium_photo-1705563088263-24d812a8a96f?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="img" />
         </div>
         <div className="login-right">
           <div className="login-right-container">
             <div className="login-logo">
-              <img src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="logo" />
+              <img src={sun} alt="logo" />
             </div>
             <div className="login-center">
               <h2>Welcome back!</h2>
