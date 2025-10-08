@@ -92,14 +92,10 @@ const Main = () => {
     };
     return (
         <>
-            <div className='main'>
+            <div className='main '>
                 <div className="top">
-                    <p>Sentramind</p>
-                    <img
-                        src="https://images.unsplash.com/photo-1517423738875-5ce310acd3da?q=80&w=770&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                        alt=""
-                        className="profile"
-                    />
+                    <p >Sentramind</p>
+                    <i class="fa-solid fa-user-doctor fa-3x"></i>
                 </div>
 
                 {messages.length === 0 ? (

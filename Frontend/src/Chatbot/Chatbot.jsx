@@ -36,7 +36,6 @@ const Chatbot = () => {
 
   return (
     <>
-      {/* <Navbar /> */}
       {/* <div style={{ backgroundColor: "red", width: "400px", marginTop: "200px", margin: "50px auto", fontFamily: "Arial" }}>
         <h2 >SentraMind AI ChatBot</h2>
         <input
@@ -77,7 +76,6 @@ const Chatbot = () => {
       </div>
       
 
-      {/* <Footer /> */}
     </>
   );
 };
