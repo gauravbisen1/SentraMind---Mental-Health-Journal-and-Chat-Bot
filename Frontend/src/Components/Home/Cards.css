@@ -1,4 +1,6 @@
 .gpt3__blog {
+    margin-top: 150px;
+    margin-bottom: 150px;
     display: flex;
     flex-direction: column;
 }

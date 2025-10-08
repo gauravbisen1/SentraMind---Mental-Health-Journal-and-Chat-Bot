@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import EditSentiment from "./EditSentiment"
+import "./Details.css"
+
 
 const Details = ({ id, onClose }) => {
+  
   const [showPopup, setShowPopup] = useState(false);
 
-  // const { id } = useParams();
   const [article, setArticle] = useState(null);
   const navigate = useNavigate();
   // Get logged-in user (from localStorage after login)
@@ -52,33 +54,41 @@ const Details = ({ id, onClose }) => {
     (currentUser._id === article.owner || currentUser.role === "admin");
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>{article.text}</h2>
-      <p><strong>User:</strong> {article.user}</p>
-      <p><strong>Sentiment:</strong> {article.sentiment || "Not analyzed"}</p>
-      <p><strong>Date:</strong> {article.date}</p>
+    <div className="div">
+      <p className="text-muted">{article.date}</p>
+      <button 
+        type="button" 
+        style={{  position:"relative" , bottom:"30px" , left:"" }} className="close" onClick={onClose}><i className="fa-solid fa-xmark fa-lg"></i>
+      </button>
+      <br />
+
+      <h3 className=""><i className="fa-solid fa-user"></i>  {article.user}</h3>
+
+      <div className="box">
+      <h2 >{article.text}</h2>
+      <p ><strong>You are feeling : </strong>  &nbsp;{ article.sentiment || "Not analyzed"}</p>
+      </div>
 
       {canEdit && (
         <>
-          <button onClick={() => setShowPopup(true)}>Edit</button>
+          <button className="editbtn close" onClick={() => setShowPopup(true)}><i className="fa-solid fa-pen-to-square fa-lg"></i></button>
 
           {showPopup && (
-            <EditSentiment onClose={() => setShowPopup(false)} id={article._id}  onSaved={(updatedArticle) => {
+            <EditSentiment onClose={() => setShowPopup(false)} id={article._id} onSaved={(updatedArticle) => {
               setArticle(updatedArticle); // update state so UI refreshes immediately
               setShowPopup(false);        // close popup
             }} />
           )}
-          <br />
-          <br />
+          
+
           <button
+          className="close dltBtn"
             onClick={handleDelete}
-            style={{ color: "white", background: "red", padding: "5px 10px" }}
           >
-            Delete
+           <i class="fa-solid fa-trash-can fa-lg"></i>
           </button>
         </>
       )}
-      <button type="button" onClick={onClose}>Close</button>
     </div>
   );
 };

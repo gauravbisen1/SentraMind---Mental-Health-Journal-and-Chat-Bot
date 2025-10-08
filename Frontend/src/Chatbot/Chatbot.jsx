@@ -2,8 +2,6 @@
 import "./Chatbot.css";
 import React, { useState } from "react";
 import axios from "axios";
-import Navbar from "../Components/Navbar/Navbar"
-import Footer from "../Components/Footer/Footer"
 import Main from "./Main"
 import Sidebar from "./Sidebar";
 

@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import "./EditSentiment.css"
 
 const EditSentiment = ({id , onClose , onSaved}) => {
-  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     user: "",
     text: "",

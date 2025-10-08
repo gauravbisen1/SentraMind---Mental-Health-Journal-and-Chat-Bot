@@ -11,7 +11,7 @@ const Menu = () => (
     <p><Link to='/'>Home</Link></p>
     <p><a href='#mental'>Mental Health</a></p>
     <p><Link to='/chatbot'>Chatbot</Link></p>
-    <p><a href='#features'>Case Studies</a></p>
+    <p><Link to='/cards'>Case Studies</Link></p>
     <p><a href='#blog'>Library</a></p>
   </>
 )

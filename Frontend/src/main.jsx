@@ -10,6 +10,8 @@ import Login from './Authentication/Login.jsx'
 import SignUp from './Authentication//SignUp.jsx'
 import { AuthProvider } from './Authentication/AuthProvider.jsx'
 import Dashboard from './Dashboard/Dashboard.jsx'
+import Cards from "./Components/Home/Cards.jsx"
+import Sentiment from './Components/Sentiment/Sentiment.jsx'
 
 
 const router = createBrowserRouter([
@@ -17,6 +19,7 @@ const router = createBrowserRouter([
     path: '/',
     element: <Layout />,
     children: [
+      
       
     ]
   },

@@ -33,7 +33,7 @@ const Sentiment = () => {
   }, []);
   return (
     <>
-      <h2 className='text-center'>A Safe Space for Your Thoughts</h2>
+      <h2 className='text-center  gradient__text'>A Safe Space for Your Thoughts</h2>
 
       <div className={`split-layout ${selectedArticle ? "with-details" : ""}`}>
         {/* left - all artcle  */}

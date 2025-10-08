@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import "./NewSentiment.css"
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 const NewSentiment = ({onClose,onSaved}) => {
   const [form, setForm] = useState({ user: "", text: "" });
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });

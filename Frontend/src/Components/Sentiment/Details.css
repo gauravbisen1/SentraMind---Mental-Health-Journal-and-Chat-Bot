@@ -1,0 +1,27 @@
+.div{
+    padding: 10px;
+}
+
+.box{
+    margin-top: 125px;
+}
+
+.box p{
+    position: relative;
+    top: 150px;
+    display: flex;
+    justify-content: center;
+    color: rgb(111, 109, 109);
+}
+
+.editbtn{
+    position: relative;
+    bottom: 328px;
+    right: 100px;
+}
+
+.dltBtn{
+    position: relative;
+    bottom: 328px;
+    right: 18px;
+}
