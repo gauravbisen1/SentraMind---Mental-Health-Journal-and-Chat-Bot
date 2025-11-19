@@ -18,8 +18,7 @@ const { isLoggedIn } = require('./middlewares/middleware.js');
 
 // allow frontend origin(cors)
 app.use(cors({
-    origin: ["http://localhost:5173",
-            "https://sentra-mind.vercel.app"],  // your React app
+    origin: "http://localhost:5173",// your React app
     credentials: true,               // allow cookies/credentials
 }));
 
@@ -71,7 +70,7 @@ app.get("/",(req,res)=>{
 //connectDB
 const Mongo_URL = "mongodb://127.0.0.1:27017/sentramind";
 async function main(){
-    await mongoose.connect(Mongo_URL);
+    await mongoose.connect(process.env.MONGODB_URI);
 }
 main().then(()=>{
     console.log("connected to DB");
