@@ -5,7 +5,7 @@ require('dotenv').config();
 const mongoose = require("mongoose");
 const Data = require("./models/data.js");
 const listings = require("./routes/listing.js");
-const ExpressError = require("./utils/ExpressError.js");
+const ExpressError = require("./utils/expressError.js");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 const cors = require("cors");
