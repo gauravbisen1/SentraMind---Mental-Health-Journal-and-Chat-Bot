@@ -6,6 +6,11 @@ import "./Navbar.css"
 import { AuthContext } from "../../Authentication/AuthProvider"
 import axios from "axios"
 
+const BASE_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:8080"
+    : "https://sentramind-backend.onrender.com";
+
 const Menu = () => (
   <>
     <p><a href='#home'>Home</a></p>
@@ -22,10 +27,7 @@ const Navbar = () => {
   const { user, setUser } = useContext(AuthContext)
   const navigate = useNavigate()
 
-  const BASE_URL =
-  window.location.hostname === "localhost"
-    ? "http://localhost:8080"
-    : "https://sentra-mind-mental-health-journal-a.vercel.app";
+  
 
   const handleLogout = async () => {
     try {

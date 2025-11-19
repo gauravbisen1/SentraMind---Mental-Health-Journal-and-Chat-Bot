@@ -9,7 +9,7 @@ import Sidebar from "./Sidebar";
 const BASE_URL =
   window.location.hostname === "localhost"
     ? "http://localhost:8080"
-    : "https://sentra-mind-mental-health-journal-a.vercel.app";
+    : "https://sentramind-backend.onrender.com";
 
 
 
