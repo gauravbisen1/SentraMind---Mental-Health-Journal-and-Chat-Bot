@@ -19,7 +19,7 @@ const { isLoggedIn } = require('./middlewares/middleware.js');
 // allow frontend origin(cors)
 app.use(cors({
     origin: ["http://localhost:5173",
-            "https://sentra-mind.vercel.app/"],  // your React app
+            "https://sentra-mind.vercel.app"],  // your React app
     credentials: true,               // allow cookies/credentials
 }));
 
