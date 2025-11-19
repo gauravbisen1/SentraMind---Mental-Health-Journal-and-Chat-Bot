@@ -4,7 +4,10 @@ import "./login.css";
 import sun from "../assets/sun.png"
 import kid from "../assets/kid.jpg"
 
-
+const BASE_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:8080"
+    : "https://sentra-mind-mental-health-journal-a.vercel.app/";
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -20,7 +23,7 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:8080/signup", formData,{withCredentials: true});
+      const res = await axios.post(`${BASE_URL}/signup`, formData,{withCredentials: true});
       alert(res.data.message);
       // Redirect user to dashboard/home
       window.location.href = "/";

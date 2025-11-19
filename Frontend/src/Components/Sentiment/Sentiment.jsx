@@ -7,13 +7,18 @@ import { AuthContext } from "../../Authentication/AuthProvider";
 import NewSentiment from "./NewSentiment"
 import Details from './Details';
 
+const BASE_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:8080"
+    : "https://sentra-mind-mental-health-journal-a.vercel.app/";
+
 const Sentiment = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [selectedArticle, setSelectedArticle] = useState(null); // track selected article
   const { user } = useContext(AuthContext); // access logged-in user
 
   const fetchData = () => {
-    axios.get("http://localhost:8080/sentra").then((res) => {
+    axios.get(`${BASE_URL}/sentra`).then((res) => {
       setAllData(res.data);
     });
   };

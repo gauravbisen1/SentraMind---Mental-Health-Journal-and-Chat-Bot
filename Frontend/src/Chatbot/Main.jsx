@@ -2,6 +2,11 @@ import './Main.css'
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios"
 
+const BASE_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:8080"
+    : "https://sentra-mind-mental-health-journal-a.vercel.app/";
+
 
 const formatTime = (iso) => {
     const d = new Date(iso);
@@ -46,7 +51,7 @@ const Main = () => {
         setInput("");
         setLoading(true);
         try {
-            const res = await axios.post("http://localhost:8080/api/chat", {
+            const res = await axios.post(`${BASE_URL}/api/chat`, {
                 threadId: "single-thread", // fixed thread
                 message: input,
             });

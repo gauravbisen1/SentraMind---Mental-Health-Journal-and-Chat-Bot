@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./EditSentiment.css";
 
+const BASE_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:8080"
+    : "https://sentra-mind-mental-health-journal-a.vercel.app/";
+
 const EditSentiment = ({ id, onClose, onSaved }) => {
   const [formData, setFormData] = useState({
     user: "",
@@ -12,7 +17,7 @@ const EditSentiment = ({ id, onClose, onSaved }) => {
   const [showCustom, setShowCustom] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/sentra/${id}`)
+    fetch(`${BASE_URL}/sentra/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setFormData({
@@ -52,7 +57,7 @@ const EditSentiment = ({ id, onClose, onSaved }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:8080/sentra/${id}`, {
+      const res = await fetch(`${BASE_URL}/sentra/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         credentials: "include",

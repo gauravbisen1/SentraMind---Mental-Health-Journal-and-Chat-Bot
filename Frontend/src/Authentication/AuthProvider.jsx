@@ -3,12 +3,18 @@ import axios from "axios";
 
 export const AuthContext = createContext();
 
+const BASE_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:8080"
+    : "https://sentra-mind-mental-health-journal-a.vercel.app/";
+
+
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   
 
   useEffect(() => {
-    axios.get("http://localhost:8080/new", { withCredentials: true })
+    axios.get(`${BASE_URL}/new`, { withCredentials: true })
       .then(res => setUser(res.data.user))
       .catch(() => setUser(null));
   }, []);

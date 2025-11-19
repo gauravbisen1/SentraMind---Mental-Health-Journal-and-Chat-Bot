@@ -22,9 +22,14 @@ const Navbar = () => {
   const { user, setUser } = useContext(AuthContext)
   const navigate = useNavigate()
 
+  const BASE_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:8080"
+    : "https://sentra-mind-mental-health-journal-a.vercel.app/";
+
   const handleLogout = async () => {
     try {
-      await axios.get("http://localhost:8080/logout", { withCredentials: true })
+      await axios.get(`${BASE_URL}/logout`, { withCredentials: true })
       setUser(null) // clear user
       setDropdownOpen(false)
       navigate("/") // redirect home

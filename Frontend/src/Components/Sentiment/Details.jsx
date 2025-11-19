@@ -3,6 +3,10 @@ import { useNavigate } from "react-router-dom";
 import EditSentiment from "./EditSentiment"
 import "./Details.css"
 
+const BASE_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:8080"
+    : "https://sentra-mind-mental-health-journal-a.vercel.app/";
 
 const Details = ({ id, onClose, onDeleted }) => {
   
@@ -15,7 +19,7 @@ const Details = ({ id, onClose, onDeleted }) => {
   const currentUser = JSON.parse(localStorage.getItem("user"));
 
   useEffect(() => {
-    fetch(`http://localhost:8080/sentra/${id}`)
+    fetch(`${BASE_URL}/sentra/${id}`)
       .then((res) => res.json())
       .then((data) => {
         // console.log("Fetched single article:", data);
@@ -29,7 +33,7 @@ const Details = ({ id, onClose, onDeleted }) => {
     if (!window.confirm("Are you sure you want to delete this sentiment?")) return;
 
     try {
-      const res = await fetch(`http://localhost:8080/sentra/${id}`, {
+      const res = await fetch(`${BASE_URL}/sentra/${id}`, {
         method: "DELETE",
         credentials: "include"
       });

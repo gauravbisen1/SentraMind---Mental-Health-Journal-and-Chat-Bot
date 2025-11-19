@@ -5,6 +5,13 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "./AuthProvider";
 import sun from "../assets/sun.png"
 
+// Auto-detect local or Vercel backend URL
+const BASE_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:8080"
+    : "https://sentra-mind-mental-health-journal-a.vercel.app/";
+
+
 function Login() {
   const [formData, setFormData] = useState({
     username: "",
@@ -26,7 +33,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:8080/login", formData, {
+      const res = await axios.post(`${BASE_URL}/login`, formData, {
         // headers: { "Content-Type": "application/json" },
         withCredentials: true // important if you're using sessions/cookies
       });

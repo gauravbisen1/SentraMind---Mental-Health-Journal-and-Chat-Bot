@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import "./NewSentiment.css";
 import axios from "axios";
 
+const BASE_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:8080"
+    : "https://sentra-mind-mental-health-journal-a.vercel.app/";
+
 const NewSentiment = ({ onClose, onSaved }) => {
   const [form, setForm] = useState({
     user: "",
@@ -36,7 +41,7 @@ const NewSentiment = ({ onClose, onSaved }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8080/sentra", form, {
+      await axios.post(`${BASE_URL}/sentra`, form, {
         withCredentials: true,
       });
       if (onSaved) onSaved(); // refresh posts
