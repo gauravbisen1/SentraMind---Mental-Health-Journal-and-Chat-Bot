@@ -16,9 +16,13 @@ const User = require("./models/user.js")
 const userRouter = require("./routes/user.js")
 const { isLoggedIn } = require('./middlewares/middleware.js');
 
+const allowedOrigins = [
+    "http://localhost:5173",
+    "https://sentra-mind.vercel.app"
+  ];
 // allow frontend origin(cors)
 app.use(cors({
-    origin: "http://localhost:5173",// your React app
+    origin: allowedOrigins,
     credentials: true,               // allow cookies/credentials
 }));
 
