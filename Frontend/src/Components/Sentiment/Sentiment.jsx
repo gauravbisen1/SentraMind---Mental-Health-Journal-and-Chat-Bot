@@ -32,7 +32,7 @@ const Sentiment = () => {
   const navigate = useNavigate();
   const [allData, setAllData] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:8080/sentra").then((res) => {
+    axios.get(`${BASE_URL}`).then((res) => {
       setAllData(res.data);
     })
   }, []);
