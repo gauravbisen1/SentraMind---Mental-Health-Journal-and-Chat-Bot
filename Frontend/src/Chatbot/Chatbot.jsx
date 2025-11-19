@@ -5,6 +5,13 @@ import axios from "axios";
 import Main from "./Main"
 import Sidebar from "./Sidebar";
 
+// Auto-detect local or vercel environment
+const BASE_URL =
+  window.location.hostname === "localhost"
+    ? "http://localhost:8080"
+    : "https://sentra-mind-mental-health-journal-a.vercel.app/";
+
+
 
 const Chatbot = () => {
   const [input, setInput] = useState("");
@@ -16,7 +23,7 @@ const Chatbot = () => {
 
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:8080/api/chat", {
+      const res = await axios.post(`${BASE_URL}/api/chat`, {
         threadId: "single-thread", // fixed thread
         message: input,
       });
