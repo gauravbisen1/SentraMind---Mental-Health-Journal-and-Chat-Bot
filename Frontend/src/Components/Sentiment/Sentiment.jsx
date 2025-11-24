@@ -23,9 +23,9 @@ const Sentiment = () => {
     });
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
   const currentUser = JSON.parse(localStorage.getItem("user"));
 
