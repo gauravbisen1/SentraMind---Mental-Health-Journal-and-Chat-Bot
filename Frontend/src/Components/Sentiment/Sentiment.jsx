@@ -43,7 +43,7 @@ const Sentiment = () => {
       <div className={`split-layout ${selectedArticle ? "with-details" : ""}`}>
         {/* left - all artcle  */}
         <div className={`articles-grid ${selectedArticle ? "half-width" : "full-width"}`}>
-          {allData.map((user) => (
+          {Array.isArray(allData) && allData.map((user) => (
             <Article
               key={user._id}
               _id={user._id}
