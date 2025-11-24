@@ -41,7 +41,11 @@ const NewSentiment = ({ onClose, onSaved }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${BASE_URL}/sentra`, form, {
+      await axios.post(`${BASE_URL}/sentra/`, form, {
+        text: form.text,
+        sentiment: form.sentiment,
+        date: form.date
+    }, {
         withCredentials: true,
       });
       if (onSaved) onSaved(); // refresh posts
@@ -59,14 +63,14 @@ const NewSentiment = ({ onClose, onSaved }) => {
           <h2>Mental Health Journal</h2>
           <p className="subtitle">Share your current thoughts and feelings</p>
 
-          <input
+          {/* <input
             type="text"
             name="user"
             placeholder="Your Name"
             value={form.user}
             onChange={handleChange}
             required
-          />
+          /> */}
 
           <textarea
             name="text"
