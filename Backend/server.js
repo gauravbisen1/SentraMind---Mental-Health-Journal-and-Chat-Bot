@@ -29,11 +29,13 @@ app.use(cors({
 const sessionOptions = {
     secret : "mySuperSecretCode",
     resave : false,
-    saveUninitialized : true,
+    saveUninitialized : false,
     cookie: {
-        expires: Date.now() + 7 * 24 * 60 * 60 *1000 ,
+        // expires: Date.now() + 7 * 24 * 60 * 60 *1000 ,
         maxAge: 7 * 24 * 60 * 60 *1000 ,//for 7 days
         httpOnly: true,
+        sameSite: "none",
+        secure: true
     }
 };
 app.use(session(sessionOptions)); //session work successfully
