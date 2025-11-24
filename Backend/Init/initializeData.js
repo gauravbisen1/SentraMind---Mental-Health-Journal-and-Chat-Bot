@@ -1,11 +1,13 @@
 const mongoose = require("mongoose");
 const initData = require("./data.js");
 const data = require("../models/data.js");
+require('dotenv').config({ path: '../.env' });
+
 
 //connectDB
-const Mongo_URL = "mongodb://127.0.0.1:27017/sentramind";
+const Mongo_URL = (process.env.MONGODB_URI);
 async function main(){
-    await mongoose.connect(Mongo_URL);
+    await mongoose.connect(process.env.MONGODB_URI);
 }
 main().then(()=>{
     console.log("connected to DB");
@@ -14,7 +16,7 @@ main().then(()=>{
 });
 
 async function main(){
-    await mongoose.connect(Mongo_URL);
+    await mongoose.connect(process.env.MONGODB_URI);
 }
 
 const initDB = async ()=>{

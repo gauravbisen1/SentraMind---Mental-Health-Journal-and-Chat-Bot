@@ -23,19 +23,19 @@ const Sentiment = () => {
     });
   };
 
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const currentUser = JSON.parse(localStorage.getItem("user"));
 
   const navigate = useNavigate();
   const [allData, setAllData] = useState([]);
-  useEffect(() => {
-    axios.get(`${BASE_URL}`).then((res) => {
-      setAllData(res.data);
-    })
-  }, []);
+  // useEffect(() => {
+  //   axios.get(`${BASE_URL}`,{withCredentials: true}).then((res) => {
+  //     setAllData(res.data);
+  //   })
+  // }, []);
   return (
     <>
       <h2 className='text-center  gradient__text'>A Safe Space for Your Thoughts</h2>
