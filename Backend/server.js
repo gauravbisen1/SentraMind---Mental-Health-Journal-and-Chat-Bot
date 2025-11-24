@@ -35,8 +35,8 @@ const sessionOptions = {
         // expires: Date.now() + 7 * 24 * 60 * 60 *1000 ,
         maxAge: 7 * 24 * 60 * 60 *1000 ,//for 7 days
         httpOnly: true,
-        // sameSite: "none",
-        // secure: true
+        sameSite: "none",
+        secure: true
     }
 };
 app.use(session(sessionOptions)); //session work successfully
